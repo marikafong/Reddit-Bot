@@ -1,0 +1,60 @@
+## basic reddit praw settup
+import praw
+
+## import user reddit keys
+import reddit_keys
+
+
+reddit = praw.Reddit(
+    username=reddit_keys.username, password=reddit_keys.password,
+    client_id=reddit_keys.client_id, client_secret=reddit_keys.client_secret,
+    user_agent="a custom python script"
+)
+
+
+## Replying to a specific comment
+
+subreddit = r.get_subreddit("udub")
+
+  submissions = subreddit.get_new(limit=100)
+
+ for sub in submissions:
+
+       flair = str(sub.link_flair_text)
+
+       flair_final = flair.lower()
+
+       if flair_final == 'academics':
+
+            sub.add_comment('Hello! I am a helper bot. I’m here to provide some links that might help you out with your question while you wait for a more detailed response.
+                            Financial Aid Questions:
+Main page for financial aid applications: https://www.washington.edu/financialaid/applying-for-aid/
+When is tuition due/when do I need to apply for aid by?: https://www.washington.edu/financialaid/applying-for-aid/key-dates-and-deadlines/
+How do I apply for financial aid like FAFSA?: https://www.washington.edu/financialaid/applying-for-aid/application-process/
+Where to contact financial aid offices: https://www.washington.edu/financialaid/contact-us/
+
+Questions About Transcripts:
+Sending highschool and/or college transcripts to UW: https://admit.washington.edu/apply/transfer/how-to-apply/transcripts/
+https://admit.washington.edu/apply/postbac/how-to-apply/send-transcripts/
+About transfer credits/college equivalency: https://admit.washington.edu/apply/transfer/equivalency-guide/
+
+Application and Transcript Questions for International Students:
+https://www.washington.edu/uaa/advising/ccuw/archives/2022/Breakout%202/2022%20INTL%20Admissions%20UW%20CC%20PPT.pdf
+
+Applying For Courses:
+SLN Codes/MyPlan Registration Help: https://registrar.washington.edu/registration/resources/
+
+How to Find Reviews for Your Professor:
+https://www.ratemyprofessors.com/
+
+How To Find Research Opportunities at UW?
+Research Opportunities Database: https://www.washington.edu/undergradresearch/research-opportunities/find/
+More Research and/or Job Opportunities through Handshake: https://careers.uw.edu/resources/handshake/
+
+Where to Find Mental Health Support Resources:
+UW Counseling Center resources for mental health: https://www.washington.edu/counseling/resources/
+Where to get mental health support at the UW or outside of UW: https://wellbeing.uw.edu/topic/mental-health/
+https://www.washington.edu/counseling/resources/referrals/
+
+Questions about UW Medical Insurance: https://wellbeing.uw.edu/medical/insurance-cost/
+')
