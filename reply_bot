@@ -3,6 +3,10 @@ import praw
 
 ## import user reddit keys
 import reddit_keys
+username=
+password=
+client_id=
+client_secret=
 
 
 reddit = praw.Reddit(
